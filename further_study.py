@@ -60,8 +60,10 @@ def custom_append(input_list, value):
         True
 
     """
-    input_list = input_list + [value]
-    print(input_list)
+    # new_list = [value]
+    # input_list = input_list + new_list
+
+    input_list[-1] = input_list[-1] + [value]
 
     pass
 
@@ -99,7 +101,12 @@ def custom_insert(input_list, index, value):
         True
 
     """
+    # input_list = input_list[0:index] + [value] + input_list[index:]
+    # print(input_list)
 
+    # input_list[index] = [value, input_list]
+
+    input_list[index:index] = [value]
     pass
 
 
@@ -118,6 +125,11 @@ def custom_remove(input_list, value):
         True
 
     """
+    for i in range(len(input_list)):
+        if input_list[i] == value:
+            del input_list[i]
+
+
 
     pass
 
@@ -137,8 +149,9 @@ def custom_pop(input_list):
         ['Jan', 'Feb']
 
     """
-
-    return None
+    output = input_list[-1]
+    del input_list[-1]
+    return output
 
 
 def custom_index(input_list, value):
@@ -153,9 +166,14 @@ def custom_index(input_list, value):
         1
 
     """
+    # output = 0
+    # for i in range(len(input_list)):
+    #     if input_list[i] == value:
+    #         output = i
+    # print(output)    
+    # return output
 
     return 0
-
 
 def custom_count(input_list, value):
     """Return the number of times value appears in the list.
